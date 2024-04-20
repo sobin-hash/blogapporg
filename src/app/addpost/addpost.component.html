@@ -1,0 +1,134 @@
+<div class="d-flex justify-content-between " style="min-height: 60px;background-color: rgb(174, 171, 171);">
+  <div class="d-flex ms-3 align-items-center mt-2">
+    <i class="fa-solid fa-arrow-left fa-lg" style="color: #1f163c;"></i>
+    <div class="mx-3"><i class="fa-brands fa-blogger fa-2xl" style="color: #d95820;font-size: 50px;"></i></div>
+  </div>
+  <div class="d-flex me-3 align-items-center ">
+    <div class="" style="color: rgb(117, 76, 1);font-size: large;font-weight: 400;">Username</div>
+    <div class="mx-3 p-2" style="background-color: #d95820;border-radius: 150px;"><i
+        class="fa-solid fa-question fa-xl"></i></div>
+  </div>
+
+</div>
+<!-- floting label for title -->
+
+<div *ngIf="!postId;else elsecase">
+  <form>
+    <!--  -->
+    <div class="form-floating mb-3 mt-2">
+      <input style="border-top: 0cap;" type="text" name="posttitle" class="form-control"
+        [(ngModel)]="postForm.posttitle" id="floatingInputTitle" placeholder="Title Goes Here">
+      <label for="floatingInput">Title Goes Here</label>
+    </div>
+
+
+
+    <!-- text section  -->
+    <div class="container">
+
+      <div class="row justify-content-center">
+
+        <div class="col-md-12 col-lg-10 d-flex justify-content-center w-75 mb-5"
+          style="min-height: 100vh;background-color: white;margin-top: 18px;background-color: rgb(224, 221, 221);">
+          <!-- <div class="container-fluid w-75" style="min-height: 100vh;background-color: white;margin-top: 18px;">section</div> -->
+          <textarea class="form-control mt-3 mb-3" name="posttext" placeholder="Write Post here" id="floatingTextarea2"
+            [(ngModel)]="postForm.posttext" style="min-height:100vh;"></textarea>
+
+
+        </div>
+        <div class="col col-lg-2 col-md-12 mt-3">
+          <div class="d-flex justify-content-center">
+            <button class="mx-2 btn btn-secondary ">Preview</button>
+            <button class="btn btn-warning" (click)="handlePosting()">Publish</button>
+            <!-- <button class="btn btn-success" (click)="handleEditing()">Publish</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-floating mb-3 mt-2 w-100">
+      <input type="text" class="form-control" name="postimg" id="floatingInputImg" [(ngModel)]="postForm.postimg"
+        placeholder="Img src Goes Here">
+      <label for="floatingInputImg">Images Src</label>
+    </div>
+
+    <label htmlfor="product-img " class="text-center mb-2">
+      <input type="file" class="d-none" name="image" id="product-img" 
+        (change)="onUpload($event)">
+      <img [src]="imageofZero" alt="" class="img-fluid " title="Upload Image"
+        style="border: 1px solid #9d9d9d; height: 80px; width: 100px;">
+
+      
+    
+    </label>
+
+
+
+  </form>
+
+</div>
+<ng-template #elsecase>
+  <div>
+    <form *ngFor="let item of getDataArray">
+      <!--  -->
+      <div class="form-floating mb-3 mt-2">
+        <input style="border-top: 0cap;" type="text" name="posttitle" class="form-control"
+          [(ngModel)]="myObject.posttitle" id="floatingInputTitle" placeholder="Title Goes Here">
+        <label for="floatingInput">Title Goes Here</label>
+      </div>
+
+
+
+      <!-- text section  -->
+      <div class="container">
+
+        <div class="row justify-content-center">
+
+          <div class="col-md-12 col-lg-10 d-flex justify-content-center w-75 mb-5"
+            style="min-height: 100vh;background-color: white;margin-top: 18px;background-color: rgb(224, 221, 221);">
+            <!-- <div class="container-fluid w-75" style="min-height: 100vh;background-color: white;margin-top: 18px;">section</div> -->
+            <textarea class="form-control mt-3 mb-3" name="posttext" placeholder="Write Post here"
+              id="floatingTextarea2" [(ngModel)]="myObject.posttext" style="min-height:100vh;"></textarea>
+
+
+          </div>
+          <div class="col col-lg-2 col-md-12 mt-3">
+            <div class="d-flex justify-content-center">
+              <button class="mx-2 btn btn-secondary ">Preview</button>
+              <!-- <button class="btn btn-warning" (click)="handlePosting()">Update</button> -->
+              <button class="btn btn-success" (click)="handleEditing()">Update</button>
+              <!-- <button class="btn btn-success" (click)="onPrint()">print</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="form-floating mb-3 mt-2 w-100">
+        <input type="text" class="form-control" name="postimg" id="floatingInputImg" [(ngModel)]="myObject.postimg"
+          placeholder="Img src Goes Here">
+        <label for="floatingInputImg">Images Src</label>
+      </div> -->
+
+      <label htmlfor="product-img " class="text-center mb-2">
+        <input type="file" class="d-none" name="image" id="product-img" 
+          (change)="onUpload($event)">
+        <div *ngIf="!imageofZero; else elseblock">
+          <img src="{{BASE_URL}}/upload/{{myObject.image}}" alt="" name="image" class="img-fluid " title="Upload Image"
+          style="border: 1px solid #9d9d9d; height: 80px; width: 100px;">
+        </div>
+        <ng-template #elseblock>
+          <img [src]="imageofZero" alt="" name="image" class="img-fluid " title="Upload Image"
+          style="border: 1px solid #9d9d9d; height: 80px; width: 100px;">
+
+        </ng-template>
+  
+        
+      
+      </label>
+  
+
+    </form>
+  </div>
+</ng-template>
+
+<!-- {{BASE_URL}}/upload/{{i.image}} -->

@@ -1,0 +1,59 @@
+<div class="d-flex justify-content-between " style="min-height: 60px;background-color: rgb(174, 171, 171);">
+    <div class="d-flex ms-3 align-items-center mt-2">
+
+        <div class="mx-3"><i class="fa-brands fa-blogger fa-2xl" style="color: #d95820;font-size: 50px;"></i>  2.0</div>
+    </div>
+    <div class="d-flex me-3 align-items-center ">
+        <div class="" style="color: rgb(117, 76, 1);font-size: large;font-weight: 400;">Username</div>
+        <div class="mx-3 p-2" style="background-color: #d95820;border-radius: 150px;">
+            <i class="fa-solid fa-question fa-xl"></i></div>
+    </div>
+
+</div>
+<div class="row-md-2 d-flex">
+    <div id="colside" class="col-lg-2 d-flex flex-column mt-2 ps-2">
+        <button routerLink="/admin" type="button" class="btn btn-outline-dark mb-2"><i class="fa-solid fa-users fa-lg"
+                style="color: #74C0FC;"></i><span class="label ms-3" >Users</span></button>
+        <button type="button" class="btn btn-outline-dark mb-2"><i class="fa-solid fa-eye fa-lg"
+                style="color: #74C0FC;"></i><span class="label ms-3">Trending</span></button>
+        <button type="button" class="btn btn-outline-dark mb-2"><i class="fa-solid fa-pen-nib fa-lg"></i><span
+                class="label ms-3">Authors</span></button>
+
+
+    </div>
+    <div class="col-lg-9 col-md-9 px-3" style="min-height:100vh ;max-width: 100%;display: flex;justify-content: center;" >
+    
+            <ul class="w-100 p-0" >
+                <ul  class="d-flex justify-content-between mt-2 p-0" style="border: 3px solid gray;border-radius: 10px; background-color: aliceblue;" *ngFor="let i of userArray">
+                    <li class="mx-5" style="list-style: none;padding: 22px;" routerLink="userblogs/{{i._id}}">{{i.username}}</li>
+                    <li style="list-style: none;padding: 22px;" (click)="deleteUser(i._id)"><i class="fa-solid fa-trash fa-lg" ></i></li>
+                </ul>
+                <!-- <ul class="d-flex justify-content-between">
+                    <li>Blog1</li>
+                    <li>actions</li>
+                </ul>
+                <ul class="d-flex justify-content-between">
+                    <li>Blog1</li>
+                    <li>actions</li>
+    
+                </ul>
+                <ul class="d-flex justify-content-between">
+                    <li>Blog1</li>
+                    <li>actions</li>
+    
+                </ul>
+                <ul class="d-flex justify-content-between">
+                    <li>Blog1</li>
+                    <li>actions</li>
+    
+                </ul>
+                <ul class="d-flex justify-content-between">
+                    <li>Blog1</li>
+                    <li>actions</li>
+    
+                </ul> -->
+            </ul>
+
+    </div>
+
+</div>

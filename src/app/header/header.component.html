@@ -1,0 +1,47 @@
+<nav id="nav" class="navbar navbar-expand-lg navbar-light bg-white d-flex justify-content-center">
+    <div class="container" id="containermar">
+      <a routerLink="/home" class="navbar-brand" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;font-size: xx-large;" >Blog2.0</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" style="font-weight: bold;font-size: small;"  id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active">Al Trends</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active">Blogging Trends</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active">SEO Tools</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active">Blogging Platforms</a>
+          </li>
+          <li class="nav-item" routerLink="/dashboard">
+            <a class="nav-link active">My Dashboard</a>
+          </li>
+          <div class="buttons d-flex">
+            <button *ngIf="!islogged;else elseblock" id="btnmar" routerLink="/login" class="btn btn-dark" style="width: 130px;font-weight: bold;font-size: small;">
+              Login
+  
+            </button>
+            <ng-template #elseblock>
+              <button id="btnmar" routerLink="/addpost" class="btn btn-dark me-2" style="width: 130px;font-weight: bold;font-size: small;">
+                Add Post
+    
+              </button>
+              <button (click)="onLogOut()" id="btnmar1" routerLink="/login" class="btn btn-dark " style="width: 130px;font-weight: bold;font-size: small;">
+                Logout
+    
+              </button>
+  
+            </ng-template>
+          </div>
+          
+          
+          
+        </ul>
+      </div>
+    </div>
+  </nav>

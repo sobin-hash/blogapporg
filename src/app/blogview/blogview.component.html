@@ -1,0 +1,22 @@
+
+<div *ngFor="let i of specificBlogArray" class="d-flex flex-column justify-content-center">
+
+    <h1 class="text-center mt-4 mb-4">{{i.posttitle}}</h1>
+    <div class="mx-4 mb-4">{{i.posttext}}</div>
+    
+    <img src="{{BASE_URL}}/upload/{{i.image}}" width="100%" alt="ssssssssssssssssssss">
+
+</div>
+<div class="d-flex flex-column mt-4 w-100 ">
+    <form (ngSubmit)="sendComment()">
+      
+        <Input class="form-control comment w-100" type="text" name="comment" ngDefaultControl (keyup)="onchange()" [(ngModel)]="comments.comment"
+         style="border-radius: 10px solid grey;height: 60px;margin-bottom: 40px;" placeholder="Add comments">
+        <!-- <button (click)="sendComment()">Add</button> -->
+    </form>
+    <div class="text-center w-100" *ngFor="let i of specificBlogArray">
+        <h2>Comments</h2>
+        <div class="mx-3">{{i.comments.username}}</div>
+
+    </div>
+</div>

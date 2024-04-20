@@ -1,0 +1,25 @@
+
+<div class="row-md-2 d-flex">
+    <div id="colside" class="col-lg-2 d-flex flex-column mt-2 ps-2">
+        <button routerLink="/admin" type="button" class="btn btn-outline-dark mb-2"><i class="fa-solid fa-users fa-lg"
+                style="color: #74C0FC;"></i><span class="label ms-3">Users</span></button>
+        <button type="button" class="btn btn-outline-dark mb-2"><i class="fa-solid fa-eye fa-lg"
+                style="color: #74C0FC;"></i><span class="label ms-3">Trending</span></button>
+        <button type="button" class="btn btn-outline-dark mb-2"><i class="fa-solid fa-pen-nib fa-lg"></i><span
+                class="label ms-3">Authors</span></button>
+
+
+    </div>
+    <div class="col-lg-9 col-md-9 px-3" style="min-height:100vh ;max-width: 100%;display: flex;justify-content: center;" >
+    
+            <div class="w-100 p-0" >
+                <div class="d-flex justify-content-between mt-2 p-0" style="border: 3px solid gray;border-radius: 10px; background-color: aliceblue;" *ngFor="let i of arrayBlogs" >
+                    <li class="mx-5" style="list-style: none;padding: 22px;">{{i.posttitle}}</li>
+                    <li style="list-style: none;padding: 22px;" (click)="removePost(i._id)" ><i class="fa-solid fa-trash fa-lg" ></i></li>
+                </div>
+                
+            </div>
+
+    </div>
+
+</div>

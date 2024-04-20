@@ -1,0 +1,36 @@
+<div style="min-height: 100vh;background-color: white;">
+    <h2 class="text-center mt-3">My Posts</h2>
+
+
+
+    <div class="row d-flex justify-content-center mt-5">
+
+        <div class="col-md-4 d-flex justify-content-center mb-4" *ngFor="let i of blogsArray">
+            <div class="card" 
+                style="width: 22rem; border: 0cap;border-radius: 0px;margin-left: 0px;margin-right: 0px;">
+                <img src="{{BASE_URL}}/upload/{{i.image}}" routerLink="/blogview/{{i._id}}" class="card-img-top" style="height:13rem;width: 100%;border-radius: 0px;"
+                    alt="...">
+                <div class="card-body p-0 mt-3 d-flex justify-content-between">
+                    <div>
+                        <h5 class="card-title">{{i.posttitle}}</h5>
+                        <a href="#" class="card-link"
+                            style="text-decoration: none;font-size: small;color: black;">blogging
+                            strategies
+                        </a>
+
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-light" (click)="onRemove(i._id)"><i class="fa-solid fa-trash fa-lg" style="color: #050505;"></i></button>
+                        <button  class="btn btn-outline-light" routerLink="/addpost/{{i._id}}"><i class="fa-solid fa-pencil fa-lg" style="color: #72a193;"></i></button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+

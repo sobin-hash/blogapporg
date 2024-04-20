@@ -1,0 +1,13 @@
+<p>admin works!</p>
+<div routerLink="dashboard"><button>Hi</button></div>
+
+<form class="d-flex flex-column">
+
+    <input type="text" name="name" [(ngModel)]="objectForm.name" placeholder="name">
+    <input type="text" name="mail" [(ngModel)]="objectForm.mail" placeholder="mail">
+    <input type="text" name="password" [(ngModel)]="objectForm.password" placeholder="password">
+    <button (click)="onClick()">submit</button>
+</form>
+<div>{{objectForm.name}}</div>
+<div>{{objectForm.mail}}</div>
+<div>{{objectForm.password}}</div>
