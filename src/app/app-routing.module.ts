@@ -8,6 +8,8 @@ import { AddpostComponent } from './addpost/addpost.component';
 // import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 import { BlogviewComponent } from './blogview/blogview.component';
 import { UserdashboardComponent } from './userdashboard/userdashboard.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -17,9 +19,11 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'addpost',component:AddpostComponent},
   {path:'addpost/:id',component:AddpostComponent},
+  {path:'contact',component:ContactUsComponent},
   // {path:'adminpanel',component:AdminpanelComponent},
   {path:'blogview/:id',component:BlogviewComponent},
   {path:'dashboard',component:UserdashboardComponent},
+  {path:'profile',component:ProfileComponent},
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
 
 ];

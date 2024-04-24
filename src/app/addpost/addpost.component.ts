@@ -4,6 +4,7 @@ import { ApiService } from '../services/api.service';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
 import { OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addpost',
@@ -16,16 +17,19 @@ export class AddpostComponent implements OnInit {
   BASE_URL:any
 
   myObject: any;
+  demoimage:any="https://tse3.mm.bing.net/th?id=OIP.TrgpTxmKq4eg7LfTRaUWWgHaHa&pid=Api&P=0&h=180"
   imageofZero: any  //file url for preview
   imageFile:any;   //file
 
   getDataArray: any = []
 
+  userDetails:any;
 
 
 
 
-  constructor(private fb: FormBuilder, private api: ApiService, private toastr: ToastrService, private aroute: ActivatedRoute) {
+
+  constructor(private fb: FormBuilder, private api: ApiService, private toastr: ToastrService, private aroute: ActivatedRoute,private router:Router) {
     this.aroute.params.subscribe({
       next: (res: any) => {
         console.log(res)
@@ -51,6 +55,8 @@ export class AddpostComponent implements OnInit {
 
 
   ngOnInit() {
+      this.userDetails=JSON.parse(sessionStorage.getItem('existingUser')||'{}')
+      console.log(this.userDetails,"user")
 
     if (this.postId) {
       console.log("done")
@@ -58,6 +64,7 @@ export class AddpostComponent implements OnInit {
       console.log(this.postForm, "postform")
 
       this.getEditDisplayData()
+      
       this.BASE_URL = this.api.BASE_URL
 
 
@@ -130,19 +137,7 @@ export class AddpostComponent implements OnInit {
 
 
 
-  // postForm = this.fb.group({
-
-  //   posttitle: this.obj,
-  //   posttext: '',
-  //   postimg: ''
-
-
-
-  // // })
-  // onPrint() {
-  //   console.log(this.myObject, "myobj")
-  // }
-
+  
 
   handlePosting() {
     console.log(this.postForm)
@@ -164,6 +159,8 @@ export class AddpostComponent implements OnInit {
       next: (res: any) => {
         console.log(res)
         this.toastr.success("Blog successfully published")
+        this.router.navigateByUrl('/home')
+        
         // this.postForm.reset()
 
 
@@ -188,12 +185,17 @@ export class AddpostComponent implements OnInit {
     formData.append("posttext", this.myObject.posttext);
     // formData.append("postimg", this.postForm.postimg);
     formData.append("image", this.imageFile);
+    formData.append("updatedimage",this.myObject.image)
+
     console.log(formData,"formdata")
+    console.log(this.imageFile)
+    
 
     this.api.editBlog(formData, this.postId).subscribe({
       next: (res: any) => {
         console.log(res, "editing after")
         this.toastr.success("Blog successfully edited")
+        this.router.navigateByUrl('/home')
 
       }, error: (err: any) => {
         console.log(err)

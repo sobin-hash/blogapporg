@@ -15,18 +15,24 @@
           <li class="nav-item">
             <a class="nav-link active">SEO Tools</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active">Blogging Platforms</a>
+          <li class="nav-item" routerLink="/profile">
+            <a class="nav-link active">My profile</a>
           </li>
           <li class="nav-item" routerLink="/dashboard">
             <a class="nav-link active">My Dashboard</a>
           </li>
+          
+          
+          
           <div class="buttons d-flex">
+            
             <button *ngIf="!islogged;else elseblock" id="btnmar" routerLink="/login" class="btn btn-dark" style="width: 130px;font-weight: bold;font-size: small;">
               Login
   
             </button>
             <ng-template #elseblock>
+              <input id="searchinput" [(ngModel)]="searchtext" (keyup)="onSearch()" type="text" placeholder="Enter text to search" style="width: 140px; border-radius: 5px;">
+
               <button id="btnmar" routerLink="/addpost" class="btn btn-dark me-2" style="width: 130px;font-weight: bold;font-size: small;">
                 Add Post
     
@@ -35,6 +41,7 @@
                 Logout
     
               </button>
+              
   
             </ng-template>
           </div>

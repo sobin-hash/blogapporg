@@ -21,7 +21,9 @@ export class BlogviewComponent implements OnInit {
 
   comments:any={
     username:this.user.username,
-    comment:''
+    comment:'',
+    date:'',
+    time:''
   }
 
   specificBlogArray:any=[]
@@ -48,27 +50,24 @@ export class BlogviewComponent implements OnInit {
   }
 
   onchange(){
-    console.log(this.comments.comment)
+    console.log(this.comments)
   }
 
-  sendComment(){
-    this.api.addComment(this.comments,this.pid).subscribe({
-      next:(res:any)=>{
-        console.log(res)
-        alert('added')
-        this.toastr.success('comment added')
-      },error:(err:any)=>{
-        console.log(err)
-        this.toastr.error(err)
-      }
-    })
 
-  }
+
+
+ 
+  
+    
+
+
+
+
 
 
 
   getSpecificBlog(){
-    this.api.getSpecificBlogHome(this.pid).subscribe({
+    this.api.getSpecificBlogHome(this.pid).subscribe({    
       next:(res:any)=>{
         console.log(res)
         this.specificBlogArray=res
@@ -81,5 +80,28 @@ export class BlogviewComponent implements OnInit {
     })
 
   }
+
+
+  sendComment(){
+    this.comments.date =new Date()
+    
+    this.api.addComment(this.comments,this.pid).subscribe({
+
+      next:(res:any)=>{
+        console.log(res)
+        console.log(this.comments)
+        this.comments.comment=''
+        this.getSpecificBlog()
+        this.toastr.success('comment added')
+
+
+      },error:(err:any)=>{
+        console.log(err)
+        this.toastr.error(err)
+
+      }
+
+    }  )  
+  } 
 
 }

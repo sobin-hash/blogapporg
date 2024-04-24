@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adminpanel',
@@ -10,10 +11,17 @@ import { OnInit } from '@angular/core';
 export class AdminpanelComponent implements OnInit{
 
   userArray:any;
-  constructor(private api:ApiService){
+  username:any;
+  constructor(private api:ApiService,private router:Router){
 
   }
+  
+
+  
+
   ngOnInit() {
+    this.username = JSON.parse(sessionStorage.getItem('existingAdmin')||'{}')
+    console.log(this.username,"username")
 
     this.getAllProducts()
     
@@ -56,6 +64,11 @@ export class AdminpanelComponent implements OnInit{
     })
     
 
+  }
+
+  onLogout(){
+    sessionStorage.clear()
+    this.router.navigateByUrl('/login')
   }
 
 

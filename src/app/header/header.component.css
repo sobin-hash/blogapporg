@@ -12,12 +12,17 @@
     margin-left: 200px;
 }
 #btnmar{
- margin-left: 300px;
+ margin-left: 200px;
 
 }
 @media (max-width:700px) {
     #containermar{
         margin-left: 0px;
+    }
+    #searchinput{
+        margin:0px;
+        margin-bottom: 5px;
+        padding: 0px;
     }
     #btnmar{
         margin-left: 0px;

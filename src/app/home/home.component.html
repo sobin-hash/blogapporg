@@ -1,20 +1,25 @@
+<app-header (searchEventEmitter)="onSearchText($event)"></app-header>
+
 <div class="bg-light" style="min-height: 100%;margin-bottom: 66px">
     <div class="d-flex row">
         <div class="col-lg-8 d-flex justify-content-end">
-            <div style="width: 800px;display: flex;justify-content: center;">
-                <img src="{{BASE_URL}}/upload/{{blogsArray[blogsArray.length-1].image}}" 
-                            style="height:430px; width:100%;border-radius: 0px;" alt="...">
+            <div style="width: 800px;display: flex;justify-content: center;flex-direction: column;">
+                <img routerLink="/blogview/{{blogsArray[blogsArray.length-1]._id}}"
+                    src="{{BASE_URL}}/upload/{{blogsArray[blogsArray.length-1].image}}"
+                    style="height:430px; width:100%;border-radius: 0px;" alt="Home-Image">
+
+                <h2 class="text-center mt-3">{{blogsArray[blogsArray.length-1].posttitle}}</h2>
 
             </div>
         </div>
-        <div class="col-lg-3 col-sm-12 d-flex align-items-start  flex-column pe-lg-5">
+        <div class="col-lg-3 col-sm-12 d-flex align-items-start  flex-column">
             <!-- <img class="img img-fluid" src="https://10web-site.ai/79/wp-content/uploads/sites/91/2024/04/WordPress_xvZ8vux4.webp" alt=""> -->
-            <div  class="card w-100 mb-1" style="border: 0cap;">
+            <div class="card w-100 mb-1" style="border: 0cap;">
                 <img src="https://10web-site.ai/79/wp-content/uploads/sites/91/2024/04/WordPress_xvZ8vux4.webp"
-                    class="card-img-top" height="250px">
+                    class="card-img-top">
                 <div class="card-body p-0 m-0">
                     <p class="card-text">The top strategies for writing and engaging blog posts</p>
-                    <p style="font-size: small;">Blogging Strategies</p>
+                    <!-- <p style="font-size: small;">Blogging Strategies</p> -->
                 </div>
             </div>
             <div class="card mb-4" style="width: 100%;border: 0cap;">
@@ -34,19 +39,22 @@
 
         </div>
     </div>
-    <div class="row d-flex">
-        <div class="col-lg-9 d-flex justify-content-end">
-            <div class="row d-flex justify-content-center"  >
+
+
+
+    <div class="row">
+        <div class="col-lg-8 d-flex flex-column justify-content-end">
+            <div class="row d-flex justify-content-center">
                 <h4 class="text-center mb-3">Editors Picks</h4>
                 <!-- <div class="col-md-1"></div> -->
-                <div class="col-md-6 d-flex justify-content-center mb-4"  *ngFor="let i of blogArrayToDis">
-                    <div class="card" routerLink="/blogview/{{i._id}}" style="width: 75%; border: 0cap;border-radius: 0px;margin-left: 0px;margin-right: 0px;">
+                <div class="col-md-6 d-flex justify-content-center mb-4"
+                    *ngFor="let i of blogArrayToDis |pipes:searchKey">
+                    <div class="card" routerLink="/blogview/{{i._id}}"
+                        style="width: 75%; border: 0cap;border-radius: 0px;margin-left: 0px;margin-right: 0px;">
                         <img src="{{BASE_URL}}/upload/{{i.image}}" class="card-img-top"
                             style="height:13rem;width: 100%;border-radius: 0px;" alt="...">
                         <div class="card-body p-0 mt-3">
                             <h5 class="card-title">{{i.posttitle}}</h5>
-                            <a href="#" class="card-link"
-                                style="text-decoration: none;font-size: small;color: black;">blogging strategies</a>
 
                         </div>
 
@@ -54,17 +62,42 @@
                     </div>
                 </div>
                 
+
+            </div>
+            <div class="d-flex justify-content-center mb-4">
+                <button class="w-25 btn btn-dark" (click)="onMore()">More Blogs</button>
+
+            </div>
+            <div *ngIf="more" class="row d-flex justify-content-center">
+                
+                <div class="col-md-6 d-flex flex-column justify-content-center mb-4"
+                    *ngFor="let i of blogArrayToDis |pipes:searchKey">
+                    <div class="card d-flex justify-content-center" routerLink="/blogview/{{i._id}}"
+                        style="width: 75%; border: 0cap;">
+                        <img src="{{BASE_URL}}/upload/{{i.image}}" class="card-img-top"
+                            style="height:13rem;width: 100%;border-radius: 0px;" alt="...">
+                        <div class="card-body p-0 mt-3">
+                            <h5 class="card-title">{{i.posttitle}}</h5>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="col-lg-3 col-sm-12 d-flex justify-content-center">
-            <div> 
+            <div class="">
                 <div class="card bg-dark text-white">
-                    <img src="https://10web-site.ai/79/wp-content/uploads/sites/91/2024/04/WordPress_xvZ8vux4.webp" class="img-fluid" alt="...">
+                    <img src="https://10web-site.ai/79/wp-content/uploads/sites/91/2024/04/WordPress_xvZ8vux4.webp"
+                        class="img-fluid" alt="...">
                     <div class="card-img-overlay d-flex flex-column justify-content-end">
-                        <button class="btn btn-dark w-50" style="border-radius:15px">Contact Us</button> 
-                      
+                        <button routerLink="/contact" class="btn btn-dark w-50" style="border-radius:15px">Contact
+                            Us</button>
+
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
     </div>

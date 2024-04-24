@@ -7,7 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ApiService {
   
 
-  BASE_URL="https://blogapporgserver.onrender.com"
+  // BASE_URL="https://blogapporgserver.onrender.com"
+  BASE_URL = "http://localhost:3000"
   constructor(private http:HttpClient) { }
 
   userRegister(data:any){
@@ -86,6 +87,11 @@ export class ApiService {
     return {headers}       //directly making it as object to avoid this --//headers:this.appendTokenHeader()
 
 
+  }
+
+  isLoggedIn(){
+    return !!sessionStorage.getItem("existingAdmin")
+    //to get boolean value we use !!
   }
 
 

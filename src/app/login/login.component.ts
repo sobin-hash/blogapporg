@@ -42,7 +42,7 @@ export class LoginComponent {
           
         }else{
           if(res.existingAdmin){
-            sessionStorage.setItem('existingUser',JSON.stringify(res.existingAdmin))
+            sessionStorage.setItem('existingAdmin',JSON.stringify(res.existingAdmin))
             console.log(res.token)
             console.log(res.existingUser,"existing user login")
             this.route.navigateByUrl('/admin')

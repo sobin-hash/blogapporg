@@ -10,6 +10,8 @@ import { OnInit } from '@angular/core';
 export class HomeComponent implements OnInit  {
 
   blogsArray:any=[]
+  searchKey:any;
+  more:any=false;
   blogArrayToDis:any=[]
   BASE_URL:any
 
@@ -25,7 +27,18 @@ export class HomeComponent implements OnInit  {
     
     
   }
-getAllBlogs(){
+
+  onSearchText(e:any){
+    this.searchKey = e
+
+
+  }
+
+  onMore(){
+    this.more=true
+
+  }
+  getAllBlogs(){
 
     this.api.getAllBlog().subscribe({
       next:(res:any)=>{

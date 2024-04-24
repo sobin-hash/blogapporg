@@ -14,7 +14,7 @@
     
             <div class="w-100 p-0" >
                 <div class="d-flex justify-content-between mt-2 p-0" style="border: 3px solid gray;border-radius: 10px; background-color: aliceblue;" *ngFor="let i of arrayBlogs" >
-                    <li class="mx-5" style="list-style: none;padding: 22px;">{{i.posttitle}}</li>
+                    <li class="mx-5" routerLink="/blogview/{{i._id}}" style="list-style: none;padding: 22px;">{{i.posttitle}}</li>
                     <li style="list-style: none;padding: 22px;" (click)="removePost(i._id)" ><i class="fa-solid fa-trash fa-lg" ></i></li>
                 </div>
                 

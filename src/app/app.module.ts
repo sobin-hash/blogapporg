@@ -20,6 +20,9 @@ import { AddpostComponent } from './addpost/addpost.component';
 // import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 import { BlogviewComponent } from './blogview/blogview.component';
 import { UserdashboardComponent } from './userdashboard/userdashboard.component';
+import { PipesPipe } from './search/pipes.pipe';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -36,6 +39,9 @@ import { UserdashboardComponent } from './userdashboard/userdashboard.component'
     AddpostComponent,
     BlogviewComponent,
     UserdashboardComponent,
+    PipesPipe,
+    ContactUsComponent,
+    ProfileComponent,
     
   ],
   imports: [
