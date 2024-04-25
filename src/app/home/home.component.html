@@ -68,12 +68,12 @@
                 <button class="w-25 btn btn-dark" (click)="onMore()">More Blogs</button>
 
             </div>
-            <div *ngIf="more" class="row d-flex justify-content-center align-items-center">
+            <div *ngIf="more" class="row d-flex justify-content-center align-items-center ">
                 
                 <div class="col-md-6 d-flex flex-column justify-content-center mb-4"
                     *ngFor="let i of blogArrayToDis |pipes:searchKey">
                     <div class="card" routerLink="/blogview/{{i._id}}"
-                        style="width: 75%; border: 0cap;">
+                        style=" border: 0cap;">
                         <img src="{{BASE_URL}}/upload/{{i.image}}" class="card-img-top"
                             style="height:13rem;width: 100%;" alt="...">
                         <div class="card-body p-0 mt-3">
