@@ -15,7 +15,7 @@
         <div class="col-lg-3 col-sm-12 d-flex align-items-start  flex-column">
             <!-- <img class="img img-fluid" src="https://10web-site.ai/79/wp-content/uploads/sites/91/2024/04/WordPress_xvZ8vux4.webp" alt=""> -->
             <div class="card w-100 mb-1" style="border: 0cap;">
-                <img src="https://10web-site.ai/79/wp-content/uploads/sites/91/2024/04/WordPress_xvZ8vux4.webp"
+                <img src="assets\what-is-a-blog-1.webp"
                     class="card-img-top">
                 <div class="card-body p-0 m-0">
                     <p class="card-text">The top strategies for writing and engaging blog posts</p>
@@ -68,14 +68,14 @@
                 <button class="w-25 btn btn-dark" (click)="onMore()">More Blogs</button>
 
             </div>
-            <div *ngIf="more" class="row d-flex justify-content-center" style="margin-left: 30px;">
+            <div *ngIf="more" class="row d-flex justify-content-center align-items-center">
                 
                 <div class="col-md-6 d-flex flex-column justify-content-center mb-4"
                     *ngFor="let i of blogArrayToDis |pipes:searchKey">
-                    <div class="card d-flex justify-content-center" routerLink="/blogview/{{i._id}}"
+                    <div class="card" routerLink="/blogview/{{i._id}}"
                         style="width: 75%; border: 0cap;">
                         <img src="{{BASE_URL}}/upload/{{i.image}}" class="card-img-top"
-                            style="height:13rem;width: 100%;border-radius: 0px;" alt="...">
+                            style="height:13rem;width: 100%;" alt="...">
                         <div class="card-body p-0 mt-3">
                             <h5 class="card-title">{{i.posttitle}}</h5>
 
@@ -90,7 +90,7 @@
         <div class="col-lg-3 col-sm-12 d-flex justify-content-center">
             <div class="">
                 <div class="card bg-dark text-white">
-                    <img src="https://10web-site.ai/79/wp-content/uploads/sites/91/2024/04/WordPress_xvZ8vux4.webp"
+                    <img src="assets\Contact_Us.jpg"
                         class="img-fluid" alt="...">
                     <div class="card-img-overlay d-flex flex-column justify-content-end">
                         <button routerLink="/contact" class="btn btn-dark w-50" style="border-radius:15px">Contact
