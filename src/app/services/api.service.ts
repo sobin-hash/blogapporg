@@ -7,8 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ApiService {
   
 
-  // BASE_URL="https://blogapporgserver.onrender.com"
-  BASE_URL = "http://localhost:3000"
+  BASE_URL="https://blogapporgserver.onrender.com"
+  // BASE_URL = "http://localhost:3000"
   constructor(private http:HttpClient) { }
 
   userRegister(data:any){
