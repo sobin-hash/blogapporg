@@ -10,10 +10,11 @@ import { BlogviewComponent } from './blogview/blogview.component';
 import { UserdashboardComponent } from './userdashboard/userdashboard.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ProfileComponent } from './profile/profile.component';
+import { userguardGuard } from './userguard.guard';
 
 
 const routes: Routes = [
-  {path:'home',component:HomeComponent},
+  {path:'home',component:HomeComponent,canActivate:[userguardGuard]},
   {path:'',component:LandingComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
@@ -22,8 +23,8 @@ const routes: Routes = [
   {path:'contact',component:ContactUsComponent},
   // {path:'adminpanel',component:AdminpanelComponent},
   {path:'blogview/:id',component:BlogviewComponent},
-  {path:'dashboard',component:UserdashboardComponent},
-  {path:'profile',component:ProfileComponent},
+  {path:'dashboard',component:UserdashboardComponent,canActivate:[userguardGuard]},
+  {path:'profile',component:ProfileComponent,canActivate:[userguardGuard]},
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
 
 ];

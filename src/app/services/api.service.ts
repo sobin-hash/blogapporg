@@ -7,8 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ApiService {
   
 
-  BASE_URL="https://blogapporgserver.onrender.com"
-  // BASE_URL = "http://localhost:3000"
+  // BASE_URL="https://blogapporgserver.onrender.com"
+  BASE_URL = "http://localhost:3000"
   constructor(private http:HttpClient) { }
 
   userRegister(data:any){
@@ -20,9 +20,17 @@ export class ApiService {
     return this.http.post(`${this.BASE_URL}/login`,data)
 
   }
+  userProfileUpdate(data:any){
+    return this.http.put(`${this.BASE_URL}/editprofile`,data,this.appendTokenToHeader())
+
+  }
 
   getSpecificBlogHome(id:any){
     return this.http.get(`${this.BASE_URL}/getspecificblog/${id}`,this.appendTokenToHeader())
+  }
+
+  getUserProfile(){
+    return this.http.get(`${this.BASE_URL}/getuserprofile`,this.appendTokenToHeader())
   }
 
   getUserBlogs(){
@@ -91,6 +99,11 @@ export class ApiService {
 
   isLoggedIn(){
     return !!sessionStorage.getItem("existingAdmin")
+    //to get boolean value we use !!
+  }
+  
+  isLoggedInUser(){
+    return !!sessionStorage.getItem("existingUser")
     //to get boolean value we use !!
   }
 
