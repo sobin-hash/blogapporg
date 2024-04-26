@@ -23,6 +23,8 @@ import { UserdashboardComponent } from './userdashboard/userdashboard.component'
 import { PipesPipe } from './search/pipes.pipe';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ProfileComponent } from './profile/profile.component';
+import { BloggingTrendComponent } from './blogging-trend/blogging-trend.component';
+import { AiTrendsComponent } from './ai-trends/ai-trends.component';
 
 
 
@@ -42,6 +44,8 @@ import { ProfileComponent } from './profile/profile.component';
     PipesPipe,
     ContactUsComponent,
     ProfileComponent,
+    BloggingTrendComponent,
+    AiTrendsComponent,
     
   ],
   imports: [

@@ -11,6 +11,8 @@ import { UserdashboardComponent } from './userdashboard/userdashboard.component'
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ProfileComponent } from './profile/profile.component';
 import { userguardGuard } from './userguard.guard';
+import { AiTrendsComponent } from './ai-trends/ai-trends.component';
+import { BloggingTrendComponent } from './blogging-trend/blogging-trend.component';
 
 
 const routes: Routes = [
@@ -23,6 +25,8 @@ const routes: Routes = [
   {path:'contact',component:ContactUsComponent},
   // {path:'adminpanel',component:AdminpanelComponent},
   {path:'blogview/:id',component:BlogviewComponent},
+  {path:'aitrends',component:AiTrendsComponent},
+  {path:'blogingtrends',component:BloggingTrendComponent},
   {path:'dashboard',component:UserdashboardComponent,canActivate:[userguardGuard]},
   {path:'profile',component:ProfileComponent,canActivate:[userguardGuard]},
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
