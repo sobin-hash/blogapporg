@@ -71,7 +71,7 @@
             <div *ngIf="more" class="row d-flex justify-content-center align-items-center ">
                 
                 <div class="col-md-6 d-flex flex-column justify-content-center mb-4"
-                    *ngFor="let i of blogArrayToDis |pipes:searchKey">
+                    *ngFor="let i of blogsArray |pipes:searchKey">
                     <div class="card" routerLink="/blogview/{{i._id}}"
                         style=" border: 0cap;">
                         <img src="{{BASE_URL}}/upload/{{i.image}}" class="card-img-top"

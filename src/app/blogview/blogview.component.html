@@ -1,10 +1,10 @@
 <div style="overflow-x: hidden;">
-    <div *ngFor="let i of specificBlogArray" class="d-flex flex-column justify-content-center">
+    <div *ngFor="let i of specificBlogArray" style="margin-left: 20px;margin-right: 20px;" class="d-flex flex-column justify-content-center">
 
         <h1 class="text-center mt-4 mb-4">{{i.posttitle}}</h1>
         <div class="mx-4 mb-4">{{i.posttext}}</div>
     
-        <img src="{{BASE_URL}}/upload/{{i.image}}" width="100%" alt="ssssssssssssssssssss">
+        <img  src="{{BASE_URL}}/upload/{{i.image}}" width="100%"  alt="blogimage">
     
     </div>
     <div class="d-flex flex-column mt-4 w-100 ">

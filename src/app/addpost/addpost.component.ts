@@ -113,10 +113,8 @@ export class AddpostComponent implements OnInit {
 
   onUpload(event: any) {
     
-
-    
     const file:File = event.target.files[0]
-    // this.postForm.image= file.name
+    
     console.log(file)
     console.log(this.postForm.image)
     let fr =new FileReader()
@@ -125,7 +123,7 @@ export class AddpostComponent implements OnInit {
       console.log(event)
       this.imageofZero=event.target.result //url from onload
       this.imageFile=file
-      console.log(this.imageFile,"imagefilee")
+      console.log(this.imageFile,"imagefile")
       
     }
   
@@ -141,28 +139,18 @@ export class AddpostComponent implements OnInit {
 
   handlePosting() {
     console.log(this.postForm)
-
-  
-
     const formData = new FormData();
 
     formData.append("posttitle", this.postForm.posttitle);
     formData.append("posttext", this.postForm.posttext);
-    // formData.append("postimg", this.postForm.postimg);
     formData.append("image", this.imageFile);
     console.log(formData,"formdata")
-
-
-
 
     this.api.createBlog(formData).subscribe({
       next: (res: any) => {
         console.log(res)
         this.toastr.success("Blog successfully published")
         this.router.navigateByUrl('/home')
-        
-        // this.postForm.reset()
-
 
       }, error: (err) => {
         this.toastr.warning("Enter valid details")
