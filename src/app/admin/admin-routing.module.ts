@@ -7,7 +7,7 @@ import { routeguardGuard } from '../routeguard.guard';
 
 const routes: Routes = [
   { path: '', component: AdminpanelComponent,canActivate:[routeguardGuard] },
-  // {path:'adminpanel',component:AdminpanelComponent},
+  
   {path:'userblogs/:id',component:AdminUserDashComponent,canActivate:[routeguardGuard]}
 ];
 

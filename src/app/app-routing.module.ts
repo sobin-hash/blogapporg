@@ -23,7 +23,7 @@ const routes: Routes = [
   {path:'addpost',component:AddpostComponent},
   {path:'addpost/:id',component:AddpostComponent},
   {path:'contact',component:ContactUsComponent},
-  // {path:'adminpanel',component:AdminpanelComponent},
+  
   {path:'blogview/:id',component:BlogviewComponent},
   {path:'aitrends',component:AiTrendsComponent},
   {path:'blogingtrends',component:BloggingTrendComponent},
