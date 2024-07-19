@@ -29,7 +29,10 @@ export class AddpostComponent implements OnInit {
 
 
 
-  constructor(private fb: FormBuilder, private api: ApiService, private toastr: ToastrService, private aroute: ActivatedRoute,private router:Router) {
+  constructor(private fb: FormBuilder, private api: ApiService, private toastr: ToastrService,
+     private aroute: ActivatedRoute,private router:Router)
+      {
+        
     this.aroute.params.subscribe({
       next: (res: any) => {
         console.log(res)
